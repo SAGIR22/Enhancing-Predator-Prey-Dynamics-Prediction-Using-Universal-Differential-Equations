@@ -125,7 +125,7 @@ optf = Optimization.OptimizationFunction((x,p) -> loss_adjoint(x), adtype)
 optprob = Optimization.OptimizationProblem(optf, p0_vec)
 res1 = Optimization.solve(optprob, OptimizationOptimisers.ADAM(0.001), callback = callback2, maxiters = 3000)
 
-# After training is complete, plot the loss curve
+# Plot the loss curve
 function plot_loss_curve()
   plot(1:iter, loss_history, xlabel="Iteration", ylabel="Loss",
        title="Loss Curve", label="Training Loss", lw=2, color=:blue)
